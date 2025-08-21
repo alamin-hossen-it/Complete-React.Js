@@ -1,0 +1,23 @@
+{
+  "name": "complete-react.js",
+  "version": "1.0.0",
+  "description": "react.js complete course",
+  "keywords": [
+    "react"
+  ],
+  "license": "ISC",
+  "author": "Alamin Hossen",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "parcel index.html",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "parcel index.html"
+  },
+  "devDependencies": {
+    "parcel": "^2.14.4"
+  },
+  "dependencies": {
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  }
+}
