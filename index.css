@@ -38,3 +38,15 @@
     height: 150px;
 }
 
+.skeleton-container{
+margin-top: 60px;
+display: flex;
+flex-wrap: wrap;
+}
+
+.skeleton{
+width: 210px;
+height: 600px;
+margin: 10px;
+background-color: rgb(151, 151, 151);
+}
