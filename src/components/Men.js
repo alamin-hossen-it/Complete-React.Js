@@ -13,7 +13,7 @@ const Men = () => {
      
       <div className="border-2 border-gray-700 w-64"></div>
       {
-        ['Barnd', 'Mens', 'kids', 'Girls'].map((title, index)=>{return <Accordion title={title} key={index} open={index === open?true:false} setOpen= {()=>{setOpen(index)}} />})
+        ['Barnd', 'Mens', 'kids', 'Girls'].map((title, index)=>{return <Accordion title={title} key={index} open={index === open?true:false} setOpen ={()=>{setOpen(index)}} />})
       }
     </div>
   );
