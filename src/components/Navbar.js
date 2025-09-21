@@ -18,17 +18,18 @@ useEffect(()=>{
 },[mode])
 
   return (
-    <div className="navbar">
-      <h1>LOGO</h1>
-      <ul className="menu_items">
-        <li><Link to="/men">MEN </Link></li>
-        <li><Link to="/women">WOMEN </Link></li>
-        <li><Link to="/kids">KIDS </Link></li>
-        <li><Link to="/cart">CART </Link></li>
-        <li><Link to="/about">ABOUT </Link></li>
+    <div className="flex justify-between px-10 py-8 shadow-md bg-slate-700 text-white ">
+      <h1 className="font-bold text-3xl">LOGO</h1>
+      <ul className="flex gap-5 ">
+        <li className="hover:border-b-gray-900 hover:text-blue-400"><Link to="/men">MEN </Link></li>
+        <li className="hover:border-b-gray-900 hover:text-blue-400"><Link to="/women">WOMEN </Link></li>
+        <li className="hover:border-b-gray-900 hover:text-blue-400"><Link to="/kids">KIDS </Link></li>
+        <li className="hover:border-b-gray-900 hover:text-blue-400"><Link to="/cart">CART </Link></li>
+        <li className="hover:border-b-gray-900 hover:text-blue-400"><Link to="/about">ABOUT </Link></li>
+        <li className="hover:border-b-gray-900 hover:text-blue-400"><Link to="/grocery">GROCERY </Link></li>
         
       </ul>
-       <button onClick={()=> setMode(!mode)}>
+       <button className="bg-blue-500 px-3 py-2 rounded-md" onClick={()=> setMode(!mode)}>
         {mode? "Light🌏" : "Dark🌑"}
       
       </button>

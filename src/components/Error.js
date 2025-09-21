@@ -59,7 +59,7 @@ const Error = () => {
         onMouseEnter={(e) =>
           (e.currentTarget.style.backgroundColor = "#0f9aebff")
         }
-        onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "black")}
+        onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "white")}
       >
      Back to Home
         <svg

@@ -1,34 +1,28 @@
 import React, { useEffect, useState } from "react";
 import Skeleton from "./Skeleton";
 import { useParams } from "react-router-dom";
+import useGetSingleProduct from "../hook/useGetSingleProduct";
 
 
 const ProductDetails = () => {
-  const [singlePeoduct, setSingleProduct] = useState(null);
   const {productId} = useParams();
-
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await fetch(`https://fakestoreapi.com/products/${productId}`);
-      const resData = await data.json();
-      setSingleProduct(resData);
-    };
-    fetchData();
-  }, []);
-
-  console.log(singlePeoduct);
+const singlePeoduct = useGetSingleProduct(productId)
+ console.log(singlePeoduct);
   if (singlePeoduct === null) {
     return <Skeleton />;
   }
   const { image, title, rating, price } = singlePeoduct;
 
   return (
-    <div className="product">
-      <img src={image} />
-      <h1> {title}</h1>
+    <div>
+     <div className="flex flex-col mx-52 my-10 h-96 items-center justify-center border rounded-md bg-slate-500" >
+       <img className="w-48 h-60" src={image} />
+      <div className="flex flex-col items-center justify-center mt-2 text-2xl border rounded-md p-2 border-blue-950 bg-gray-200">
+        <h1> Name: {title}</h1>
       <p>Rating: {rating?.rate}</p>
-      <p>Price: {price}</p>
+      <p>Price:$ {price}</p>
+      </div>
+     </div>
     </div>
   );
 };

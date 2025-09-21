@@ -1,7 +1,17 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const Profile = ({name, email, address}) => {
-     const [count, setCount]= useState(0)
+     const [count, setCount]= useState(0);
+
+     useEffect(()=>{
+     const timer = setInterval(()=>{
+        console.log('Alamin Hossen')
+      },1000)
+      return ()=>{
+        clearInterval(timer)
+      }
+
+     },[])
   return (
     <div style={{border:"2px solid black", marginTop:"10px", padding:"20px"}}>
         <h1>Functional Components</h1>
