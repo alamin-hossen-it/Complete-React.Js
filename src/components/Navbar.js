@@ -1,10 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+import UserContext from "../utils/UserContext";
 
 export const Navbar = () => {
 
 const [mode, setMode] = useState(true)
 
+const user = useContext(UserContext);
  
 // useEffect Array Dependency have 3 to call him.
 
@@ -29,10 +31,20 @@ useEffect(()=>{
         <li className="hover:border-b-gray-900 hover:text-blue-400"><Link to="/grocery">GROCERY </Link></li>
         
       </ul>
-       <button className="bg-blue-500 px-3 py-2 rounded-md" onClick={()=> setMode(!mode)}>
+       
+  <div className="flex ">
+ 
+      
+     <h2 className="mt-2 mr-3 ">{user.name}</h2>
+       {/* use for dynamic name charecter display increase the user exprience better */}
+     {/* <h2 className="mt-2 mr-5 font-bold size-5">{user.name.split(' ')[0].charAt(0) + user.name.split(' ')[1].charAt(0)}</h2> */}
+         <button className="bg-blue-500 px-3 py-2 rounded-md hover:bg-white hover:text-blue-800"  onClick={()=> setMode(!mode)}>
         {mode? "Light🌏" : "Dark🌑"}
       
       </button>
+     
+  </div>
+      
     </div>
   );
 };

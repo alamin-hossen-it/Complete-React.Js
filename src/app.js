@@ -1,4 +1,4 @@
-import React, { Suspense,lazy } from "react";
+import React, { Suspense,lazy, useState } from "react";
 import ReactDOM from "react-dom/client";
 import { Navbar } from "./components/Navbar";
 import { ProductCard } from "./components/ProductCard";
@@ -12,6 +12,8 @@ import Women from "./components/Women";
 import Error from "./components/Error";
 import ProductDetails from "./components/ProductDetails";
 import Skeleton from "./components/Skeleton";
+import CompoA from "./components/CompoA";
+import UserContext from "./utils/UserContext";
 // import Grocery from "./components/Grocery"; // dont normal import big and havy file rather then use lazy loading best way for perfomance.
 
 const Grocery = lazy(()=>import("./components/Grocery"))
@@ -19,13 +21,16 @@ const Grocery = lazy(()=>import("./components/Grocery"))
 
 
 const App = () => {
+  const [userName, setUserName]=useState('Ariyan Khan')
   return (
-    <div>
+    <UserContext.Provider value={{name:userName, setUserName}} >
+         <div>
       <Navbar />
-
      <Outlet />
      
     </div>
+    </UserContext.Provider>
+        
   );
 };
 

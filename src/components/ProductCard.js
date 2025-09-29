@@ -1,14 +1,16 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import { HOF, Product } from "./Product";
 import Skeleton from "./Skeleton";
 import { Link } from "react-router-dom";
+import UserContext from "../utils/UserContext";
 
 export const ProductCard = () => {
   const [listOfProduct, setListOfProduct] = useState([]);
   const [tepmProduct, setTempProduct] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [text, setText] = useState("");
+  const user= useContext(UserContext)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -75,7 +77,11 @@ export const ProductCard = () => {
           >
             Top rated product
           </button>
+        
         </div>
+          <div>
+            <input  className="border border-black px-2 py-1 mt-5 h-10 rounded-md bg-gray-200" type="text" placeholder="Change context Name" value={user.name} onChange={(e)=>(user.setUserName(e.target.value))}/>
+          </div>
       </div>
 
       <div className="grid grid-cols-4 mt-7 m-7 items-center justify-center">
