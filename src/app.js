@@ -14,6 +14,9 @@ import ProductDetails from "./components/ProductDetails";
 import Skeleton from "./components/Skeleton";
 import CompoA from "./components/CompoA";
 import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./store/store";
+import Cart from "./components/Cart";
 // import Grocery from "./components/Grocery"; // dont normal import big and havy file rather then use lazy loading best way for perfomance.
 
 const Grocery = lazy(()=>import("./components/Grocery"))
@@ -21,8 +24,9 @@ const Grocery = lazy(()=>import("./components/Grocery"))
 
 
 const App = () => {
-  const [userName, setUserName]=useState('Ariyan Khan')
+  const [userName, setUserName]=useState('Alamin Hossen')
   return (
+    <Provider store={appStore}>
     <UserContext.Provider value={{name:userName, setUserName}} >
          <div>
       <Navbar />
@@ -30,6 +34,7 @@ const App = () => {
      
     </div>
     </UserContext.Provider>
+    </Provider>
         
   );
 };
@@ -44,6 +49,7 @@ const AppRouter = createBrowserRouter([
         {path:"/men" , element: <Men />},
         {path:"/women" , element: <Women />},
         {path:"/product/:productId" , element: <ProductDetails />},
+        {path:"/cart" , element: <Cart />},
        
        
     ],

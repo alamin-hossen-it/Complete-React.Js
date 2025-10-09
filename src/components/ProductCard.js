@@ -10,7 +10,7 @@ export const ProductCard = () => {
   const [tepmProduct, setTempProduct] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [text, setText] = useState("");
-  const user= useContext(UserContext)
+  const user = useContext(UserContext)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,8 +25,12 @@ export const ProductCard = () => {
       } catch (error) {
         console.log(error);
       }
+      
     };
     fetchData();
+    return ()=>{
+        console.log("Component unmount from useEffect!")
+      }
   }, []);
   const HofComponent = HOF(Product);
   return isLoading ? (

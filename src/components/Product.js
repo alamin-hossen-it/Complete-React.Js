@@ -11,6 +11,7 @@ export const Product = ({product}) => {
       <p>Rating: {rating?.rate}</p>
       <p>Price: ${price}</p>
      
+     
     </div>
   );
 };
