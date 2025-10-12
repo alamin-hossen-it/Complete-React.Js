@@ -10,7 +10,7 @@ const ProductDetails = () => {
   const { productId } = useParams();
   const singlePeoduct = useGetSingleProduct(productId);
    const dispatch = useDispatch()
-  console.log(singlePeoduct);
+
   if (singlePeoduct === null) {
     return <Skeleton />;
   }
